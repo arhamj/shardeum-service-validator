@@ -1,0 +1,12 @@
+{
+  "app_sqlite_config": {
+    "db_path": "${APP_SQLITE_DB_PATH}",
+    "log_level": 2
+  },
+  "helper_flags": {},
+  "feature_flags": {},
+  "server_config": {
+  },
+  "auth_config": {
+  }
+}

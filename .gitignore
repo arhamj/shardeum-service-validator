@@ -1,0 +1,13 @@
+.idea/
+.vscode/
+volumes/
+
+./*.txt
+*.out
+volume
+cmd/__debug*
+scripts/.DS_Store
+.DS_Store
+
+coverage.txt
+service_validator
