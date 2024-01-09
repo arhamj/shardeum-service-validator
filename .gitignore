@@ -11,3 +11,4 @@ scripts/.DS_Store
 
 coverage.txt
 service_validator
+db/shardeum*

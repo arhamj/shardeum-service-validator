@@ -4,6 +4,7 @@ import (
 	"encoding/hex"
 	"errors"
 	"math/big"
+	"strconv"
 	"strings"
 
 	"github.com/shardeum/service-validator/pkg/constants/enums"
@@ -40,4 +41,17 @@ func HexToBigInt(hexString string) *big.Int {
 		log.Error("Failed to parse hex string")
 	}
 	return bigInt
+}
+
+func BufferMapToBytes(bufferMap map[string]int) []byte {
+	result := make([]byte, len(bufferMap))
+	for i := 0; i < len(bufferMap); i++ {
+		key := strconv.Itoa(i)
+		if value, ok := bufferMap[key]; ok {
+			result[i] = byte(value)
+		} else {
+			log.Fatalf("Missing byte index: %d", i)
+		}
+	}
+	return result
 }

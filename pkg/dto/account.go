@@ -31,10 +31,10 @@ type ParsedAccountData struct {
 }
 
 type EVMAccount struct {
-	Balance     string     `json:"balance"`
-	Nonce       string     `json:"nonce"`
-	CodeHash    BufferType `json:"codeHash"`
-	StorageRoot BufferType `json:"storageRoot"`
+	Balance     string         `json:"balance"`
+	Nonce       string         `json:"nonce"`
+	CodeHash    map[string]int `json:"codeHash"`
+	StorageRoot map[string]int `json:"storageRoot"`
 }
 
 type BufferType struct {

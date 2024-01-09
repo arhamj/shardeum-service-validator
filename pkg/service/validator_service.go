@@ -47,8 +47,8 @@ func (v validatorService) GetEVMAccount(address string) (*dto.GetEVMAccountRespo
 		}{
 			Balance:     util.HexToBigInt(parsedAccountData.Account.Balance).String(),
 			Nonce:       util.HexToBigInt(parsedAccountData.Account.Nonce).String(),
-			CodeHash:    util.BytesToHex(parsedAccountData.Account.CodeHash.ExtractBytes()),
-			StorageRoot: util.BytesToHex(parsedAccountData.Account.StorageRoot.ExtractBytes()),
+			CodeHash:    util.BytesToHex(util.BufferMapToBytes(parsedAccountData.Account.CodeHash)),
+			StorageRoot: util.BytesToHex(util.BufferMapToBytes(parsedAccountData.Account.StorageRoot)),
 		},
 	}
 	return &res, nil
@@ -67,7 +67,7 @@ func (v validatorService) GetCodeBytes(address string) (*dto.GetCodeResponse, er
 	if err != nil {
 		return nil, err
 	}
-	codeHashKey := util.BytesToHex(parsedAccountData.Account.CodeHash.ExtractBytes())
+	codeHashKey := util.BytesToHex(util.BufferMapToBytes(parsedAccountData.Account.CodeHash))
 	codeBytesShardusAddress, err := util.ToShardusAddress(address, codeHashKey, enums.ContractCode)
 	if err != nil {
 		return nil, err
